@@ -8,7 +8,11 @@
   "scripts": {
     "lint": "eslint .",
     "start": "node .",
-    "posttest": "npm run lint && nsp check"
+    "posttest": "npm run lint && nsp check",
+    "watch": "nodemon server/server.js",
+    "migrate": "node bin/002-automigrate.js",
+    "import": "node bin/001-import.js",
+    "f": "npm run migrate && nodemon bin/001-import.js"
   },
   "dependencies": {
     "compression": "^1.0.3",
@@ -22,7 +26,8 @@
     "nodemon": "^1.17.1",
     "raven": "^2.4.2",
     "serve-favicon": "^2.0.1",
-    "strong-error-handler": "^2.0.0"
+    "strong-error-handler": "^2.0.0",
+    "underscore": "^1.8.3"
   },
   "devDependencies": {
     "eslint": "^3.17.1",

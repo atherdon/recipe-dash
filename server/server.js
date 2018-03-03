@@ -1,20 +1,43 @@
 'use strict';
 
-if (process.env.NODE_ENV !== 'production') {
-  require('dotenv').load();
+
+const loopback    = require('loopback');
+const boot        = require('loopback-boot');
+
+const forestLiana = require('forest-loopback');
+
+const Raven = require('raven');
+Raven.config('https://e63766d4bb0c489f9a98bd49581156ef@sentry.io/297792').install();
+
+
+try {
+
+  if ( process.env.NODE_ENV === 'development' || !process.env.NODE_ENV ) {
+    // only use in development 
+    require('dotenv').load();
+    // config = require('../providers.json');  
+  } else {
+    // config = require('../providers.production.json');  
+  }
+
+  // console.log(config);
+} catch (err) {
+  
+  Raven.captureException(err);
+  process.exit(1); // fatal
 }
 
-var loopback = require('loopback');
-var boot = require('loopback-boot');
 
 var app = module.exports = loopback();
 
-app.use(require('forest-loopback').init({
-  modelsDir: __dirname + '/../common/models',  // The directory where all of your Loopback models are defined.
-  secretKey: '262818171583bf9f325444fa69255b57e81899e022c25f6030239979a41dd1d1', // The secret key given my Forest.
-  authKey: 'wKDr2vJ0nqqEj51Ma6Ooh3cfnopLlJf7', // Choose a secret authentication key.
-  loopback: require('loopback') // The loopback instance given by require('loopback').
-}));
+app.use( 
+  forestLiana.init({
+    modelsDir: __dirname + '/../common/models',  // The directory where all of your Loopback models are defined.
+    secretKey: '262818171583bf9f325444fa69255b57e81899e022c25f6030239979a41dd1d1', // The secret key given my Forest.
+    authKey: 'wKDr2vJ0nqqEj51Ma6Ooh3cfnopLlJf7', // Choose a secret authentication key.
+    loopback: loopback // The loopback instance given by require('loopback').
+  }) 
+);
 
 
 app.start = function() {

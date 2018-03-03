@@ -12,5 +12,17 @@
       "../common/mixins",
       "./mixins"
     ]
+  },
+  "Department": {
+    "dataSource": "forestDS",
+    "public": true
+  },
+  "Ingredient": {
+    "dataSource": "forestDS",
+    "public": true
+  },
+  "Recipe": {
+    "dataSource": "forestDS",
+    "public": true
   }
 }

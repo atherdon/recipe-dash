@@ -33,7 +33,7 @@
     "eslint": "^4.18.2",
     "eslint-config-loopback": "^10.0.0",
     "nsp": "^3.2.1",
-    "nodemon": "^1.17.1"
+    "nodemon": "^1.17.2"
   },
   "repository": {
     "type": "",

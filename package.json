@@ -24,7 +24,7 @@
     "loopback-boot": "^2.27.1",
     "loopback-component-explorer": "^6.0.0",
     "serve-favicon": "^2.5.0",
-    "strong-error-handler": "^2.3.2",
+    "strong-error-handler": "^3.0.0",
     "raven": "^2.6.0",
     "underscore": "^1.9.0",
     "loopback-connector-mongodb": "^3.4.3"

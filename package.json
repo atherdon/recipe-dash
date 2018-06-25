@@ -30,7 +30,7 @@
     "loopback-connector-mongodb": "^3.4.3"
   },
   "devDependencies": {
-    "eslint": "^4.19.1",
+    "eslint": "^5.0.0",
     "eslint-config-loopback": "^10.0.0",
     "nsp": "^3.2.1",
     "nodemon": "^1.17.3"
